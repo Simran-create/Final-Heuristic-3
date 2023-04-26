@@ -7,8 +7,8 @@ from bayes_opt import BayesianOptimization
 
 # Load the dataset
 data = datasets.load_iris()
-X = data.data
-y = data.target
+X, y = data.data, data.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Define the objective function to optimize
 def svm_cv(C, gamma):
